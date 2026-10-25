@@ -19,7 +19,7 @@ rebuild it from the card's cherry-pick recipe.
 | Cherry-picked | [#1125](https://github.com/1CatAI/1Cat-vLLM/pull/1125) at `587fac6eb` + `da13d2d9c` (contains [#1092](https://github.com/1CatAI/1Cat-vLLM/pull/1092)), [#1159](https://github.com/1CatAI/1Cat-vLLM/pull/1159) at `44d292046`, [#1161](https://github.com/1CatAI/1Cat-vLLM/pull/1161) at `a66fcda49`, [#1166](https://github.com/1CatAI/1Cat-vLLM/pull/1166) at `74d2cf6da`, [#1165](https://github.com/1CatAI/1Cat-vLLM/pull/1165) at `60dd820a7` |
 | Merged | [#1102](https://github.com/1CatAI/1Cat-vLLM/pull/1102) at `b96d43e5c` (conflicts in `CMakeLists.txt` and `csrc/ops.h`, both sides kept) |
 | Already in base | [#1091](https://github.com/1CatAI/1Cat-vLLM/pull/1091), MTP speculator wiring (merged upstream) |
-| Snapshot tag | [`glm53-card-20261010`](../../tree/glm53-card-20261010): source tree `b321701ed88fc9882ae7c71cdb5968a6635505ab` |
+| Snapshot tag | [`glm53-card-20261010`](https://github.com/philbert440/glm-5.3-v100/tree/glm53-card-20261010): source tree `b321701ed88fc9882ae7c71cdb5968a6635505ab` |
 
 The history here is linear. The first commit imports the upstream tree at `ec60883ad` unmodified, without upstream
 history. Each PR commit after it keeps its original author and message. #1102 is a single squashed commit. The tagged
@@ -37,10 +37,11 @@ Requirements: Linux x86_64 (glibc 2.39 or newer), Python 3.12, NVIDIA driver wit
 toolkit, a C++ compiler, and `ninja` for the TileLang kernels that still JIT-compile at startup.
 
 ```bash
-# from https://github.com/philbert440/glm-5.3-v100/releases/tag/glm53-card-20261010
+# download 1cat_vllm-1.5.2.dev1486+glm53card-cp312-cp312-linux_x86_64.whl and SHA256SUMS from
+# https://github.com/philbert440/glm-5.3-v100/releases/tag/glm53-card-20261010
 sha256sum -c SHA256SUMS
 uv venv --python 3.12 .venv
-uv pip install --python .venv/bin/python ./WHEEL_NAME ninja --torch-backend=cu128
+uv pip install --python .venv/bin/python ./1cat_vllm-1.5.2.dev1486+glm53card-cp312-cp312-linux_x86_64.whl ninja --torch-backend=cu128
 ```
 
 The wheel is built from the tagged tree with `TORCH_CUDA_ARCH_LIST=7.0`, CUDA 12.8.1, gcc 14 and torch 2.10.0+cu128,
