@@ -866,7 +866,7 @@ safetensors==0.8.0
     #   segmentation-models-pytorch
     #   timm
     #   transformers
-schemathesis==3.39.15
+schemathesis==4.30.1
     # via -r requirements/test/cuda.in
 scikit-image==0.25.2
     # via albumentations
